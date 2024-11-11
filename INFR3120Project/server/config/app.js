@@ -17,8 +17,8 @@ mongoDB.once ('open', () => {
 })
 
 
-let indexRouter = require('../models/routes/index');
-let usersRouter = require('../models/routes/users');
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
 
 let app = express();
 
