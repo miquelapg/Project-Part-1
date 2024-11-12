@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Database' });
 });
-router.get('/Homework/add', function(req, res, next) {
+router.get('/homework/add', function(req, res, next) {
   res.render('index', { title: 'Add' });
 });
 
