@@ -5,7 +5,7 @@
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
-            <a href="/Homework/add" class="btn btn-primary" role="button">
+            <a href="/homework/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Homework
             </a>
             <table class="table table-bordered table-striped table-hover">
@@ -15,20 +15,20 @@
                     <th class="text-center col-1">Due Date</th>
                     <th class="col-4">Description</th>
                 </tr>
-                <% for(let count=0;count<Homework.length;count++) { %>
+                <% for(let count=0;count<homework.length;count++) { %>
                 <tr class="d-flex">
-                    <td class="text-center col-2"><%= Homework[count].Name %></td>
-                    <td class="text-center col-2"><%= Homework[count].Subject %></td>
-                    <td class="text-center col-1"><%=Homework[count].Due Date%></td>
-                    <td class="col-4"><%= Homework[count].Description %> </td>
+                    <td class="text-center col-2"><%= homework[count].Name %></td>
+                    <td class="text-center col-2"><%= homework[count].Subject %></td>
+                    <td class="text-center col-1"><%= homework[count].Due Date%></td>
+                    <td class="col-4"><%= homework[count].Description %> </td>
                     <td class="text-center col-1">
-                        <a href="/Homework/edit/<%= Homework[count]._id%>"
+                        <a href="/homework/edit/<%= homework[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/Homework/delete/<%= Homework[count]._id%>"
+                        <a href="/homework/delete/<%= homework[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     </a>

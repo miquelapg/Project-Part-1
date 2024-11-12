@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let Homeworks = mongoose.Schema({
+let homeworks = mongoose.Schema({
     Name: String,
     Subject: String,
     Due_Date: String,
