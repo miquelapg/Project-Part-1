@@ -5,7 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 //config mongodb
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 let DB = require('./db');
 
 //point mongoose to DB URI
@@ -16,9 +16,9 @@ mongoDB.once ('open', () => {
   console.log('connected to the MongoDB')
 })
 
-
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
+let homeworkRouter = require('../routes/homework')
 
 let app = express();
 
@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/homework', homeworkRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

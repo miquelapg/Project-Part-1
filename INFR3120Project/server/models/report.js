@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-let homeworks = mongoose.Schema({
+let homeworkModel = mongoose.Schema({
     Name: String,
     Subject: String,
-    Due_Date: String,
+    Due_Date: Number,
     Description: String
-})
+},
 {
-    collection:"Homeworks"
-}
-module.exports = mongoose.model('Homework', Homeworks);
+    collection:"homework"
+});
+module.exports = mongoose.model('Homework', homeworkModel);

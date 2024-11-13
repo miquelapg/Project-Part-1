@@ -2,34 +2,34 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 
-let Book = require('../model/report');
-const book = require('../model/report');
-let bookController = require('../controllers/homework.js')
+let Homework = require('../models/report');
+const homework = require('../models/report');
+let homeworkController = require('../controllers/homework.js')
 
 router.get('/',async(req,res,next)=>{
     try{
-        const Homeworks = await homework.find();
-        res.render('homework/list',{
+        const HomeworkList = await Homework.find();
+        res.render('Homework/list',{
             title:'Homework',
-            Homework:Homework
+            HomeworkList:HomeworkList
         })}
         catch(err){
             console.error(err);
-            res.render('homework/list',{
+            res.render('Homework/list',{
                 error:'Error on the server'
             })
         }
         });
 router.get('/add',async(req,res,next)=>{
     try{
-        res.render('homework/add',{
+        res.render('Homework/add',{
             title: 'Add Homework'
         })
     }
     catch(err)
     {
             console.error(err);
-        res.render('homework/list',{
+        res.render('Homework/list',{
             error:'Error on the server'
         })
     }
@@ -41,16 +41,15 @@ router.post('/add',async(req,res,next)=>{
             "Subject":req.body.Subject,
             "Due Date":req.body.Due_Date,
             "Description":req.body.Description,
-        
         });
         Homework.create(newHomework).then(()=>{
             res.redirect('/homework');
         })
-    }
+    }   
     catch(err)
     {
         console.error(err);
-        res.render('homework/list',{
+        res.render('Homework/list',{
             error:'Error on the server'
         })
     }
@@ -59,7 +58,7 @@ router.get('/edit/:id',async(req,res,next)=>{
     try{
         const id = req.params.id;
         const HomeworkToEdit= await Homework.findById(id);
-        res.render('homework/edit',
+        res.render('Homework/edit',
             {
                 title:'Edit Homework',
                 Homework:HomeworkToEdit
@@ -102,7 +101,7 @@ router.get('/delete/:id',async(req,res,next)=>{
     }
     catch(error){
         console.error(err);
-        res.render('homework/list',{
+        res.render('Homework/list',{
             error:'Error on the server'
         })
     }

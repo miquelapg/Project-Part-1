@@ -8,6 +8,9 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Database' });
 });
+router.get('/homework', function(req, res, next) {
+  res.render('index', { title: 'Homework' });
+});
 
 
 module.exports = router;
