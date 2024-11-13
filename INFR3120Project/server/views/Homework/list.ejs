@@ -1,12 +1,13 @@
-<%- include Partials/header.ejs %>
-<%- include Partials/main_nav.ejs %>
+<%- include ../Partials/header.ejs%>
+<%- include ../Partials/main_nav.ejs%>
+<!--Book Database-->
 <main class="container">
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
-            <a href="/Homework/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add Homework
+            <a href="/homeworklist/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Add Book
             </a>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
@@ -17,18 +18,19 @@
                 </tr>
                 <% for(let count=0;count<HomeworkList.length;count++) { %>
                 <tr class="d-flex">
-                    <td class="text-center col-2"><%= HomeworkList[count].Name %></td>
-                    <td class="text-center col-2"><%= HomeworkList[count].Subject %></td>
-                    <td class="text-center col-1"><%= HomeworkList[count].Due Date%></td>
+                    <td class="text-center col-2"><%= HomeworkList[count].Name %></td>  
+                    <td class="text-center col-2"><%= HomeworkList[count].Author %></td>
+                    <td class="text-center col-1"><%=HomeworkList[count].Published%></td>
                     <td class="col-4"><%= HomeworkList[count].Description %> </td>
+                    <td class="text-center col-1"><%= HomeworkList[count].Price %></td>
                     <td class="text-center col-1">
-                        <a href="/Homework/edit/<%= HomeworkList[count]._id%>"
+                        <a href="/homeworklist/edit/<%= HomeworkList[count]._id%>"
                             class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i>Edit
                     </a>
                     </td>
                     <td class="text-center col-1">
-                        <a href="/Homework/delete/<%= HomeworkList[count]._id%>"
+                        <a href="/homeworklist/delete/<%= HomeworkList[count]._id%>"
                             class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i>Delete
                     </a>
@@ -39,4 +41,4 @@
         </div>
     </div>
 </main>
-<%- include Partials/footer.ejs %>
+<%- include ../Partials/footer.ejs%>

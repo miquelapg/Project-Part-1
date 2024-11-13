@@ -1,25 +1,32 @@
 var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
-
-let Homework = require('../models/report');
-const homework = require('../models/report');
+// telling my router that I have this model
+let Homework = require('../models/report.js');
+//const book = require('../model/report.js');
 let homeworkController = require('../controllers/homework.js')
-
+/* Get route for the book list - Read Operation */
+/*
+GET,
+Post,
+Put --> Edit/Update
+*/
+/* Read Operation --> Get route for displaying the books list */
 router.get('/',async(req,res,next)=>{
-    try{
-        const HomeworkList = await Homework.find();
+try{
+    const HomeworkList = await Homework.find();
+    res.render('Homework/list',{
+        title:'Homework',
+        HomeworkList:HomeworkList
+    })}
+    catch(err){
+        console.error(err);
         res.render('Homework/list',{
-            title:'Homework',
-            HomeworkList:HomeworkList
-        })}
-        catch(err){
-            console.error(err);
-            res.render('Homework/list',{
-                error:'Error on the server'
-            })
-        }
-        });
+            error:'Error on the server'
+        })
+    }
+    });
+/* Create Operation --> Get route for displaying me the Add Page */
 router.get('/add',async(req,res,next)=>{
     try{
         res.render('Homework/add',{
@@ -28,24 +35,26 @@ router.get('/add',async(req,res,next)=>{
     }
     catch(err)
     {
-            console.error(err);
+        console.error(err);
         res.render('Homework/list',{
             error:'Error on the server'
         })
     }
 });
+/* Create Operation --> Post route for processing the Add Page */
 router.post('/add',async(req,res,next)=>{
     try{
         let newHomework = Homework({
             "Name":req.body.Name,
-            "Subject":req.body.Subject,
-            "Due Date":req.body.Due_Date,
+            "Subject":req.body.Author,
+            "Due Date":req.body.Published,
             "Description":req.body.Description,
+           
         });
         Homework.create(newHomework).then(()=>{
-            res.redirect('/homework');
+            res.redirect('/homeworklist');
         })
-    }   
+    }
     catch(err)
     {
         console.error(err);
@@ -54,14 +63,15 @@ router.post('/add',async(req,res,next)=>{
         })
     }
 });
+/* Update Operation --> Get route for displaying me the Edit Page */
 router.get('/edit/:id',async(req,res,next)=>{
     try{
         const id = req.params.id;
-        const HomeworkToEdit= await Homework.findById(id);
+        const homeworkToEdit= await Homework.findById(id);
         res.render('Homework/edit',
             {
                 title:'Edit Homework',
-                Homework:HomeworkToEdit
+                Homework:homeworkToEdit
             }
         )
     }
@@ -70,7 +80,8 @@ router.get('/edit/:id',async(req,res,next)=>{
         console.error(err);
         next(err); // passing the error
     }
-});       
+});
+/* Update Operation --> Post route for processing the Edit Page */ 
 router.post('/edit/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
@@ -80,23 +91,25 @@ router.post('/edit/:id',async(req,res,next)=>{
             "Subject":req.body.Subject,
             "Due Date":req.body.Due_Date,
             "Description":req.body.Description,
+           
         });
         Homework.findByIdAndUpdate(id,updatedHomework).then(()=>{
-            res.redirect('/homework')
+            res.redirect('/homeworklist')
         })
     }
     catch(err){
         console.error(err);
-        res.render('homework/list',{
+        res.render('Homework/list',{
             error:'Error on the server'
         })
     }
 });
+/* Delete Operation --> Get route to perform Delete Operation */
 router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id=req.params.id;
         Homework.deleteOne({_id:id}).then(()=>{
-            res.redirect('/homework')
+            res.redirect('/homeworklist')
         })
     }
     catch(error){

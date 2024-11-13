@@ -1,25 +1,26 @@
-<%- include Partials/header.ejs %>
-<%- include Partials/main_nav.ejs %>
+<%- include ../Partials/header.ejs%>
+<%- include ../Partials/main_nav.ejs%>
+<!--Content for the edit Operation-->
 <div class="container"></div>
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="nameTextField">Name</label>
-                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Name of the Homework" name="Name" value="<%= Homework.Name %>" required>
+                    <label for="nameTextField"> Name</label>
+                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Homework Name=" value="<%= Homwork.Name %>" required>
                 </div>
                 <div class="form-group">
                     <label for="subjectTextField">Subject</label>
-                    <input type="text" class="form-control" id="SubjectTextField" placeholder="Enter the Subject Name" name="Subject" value="<%= Homework.Subject %>" required>
+                    <input type="text" class="form-control" id="subjectTextField" placeholder="Enter the Subject" name="Subject" value="<%= Homework.Subject %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="Due_DateFTextField">Due Date</label>
-                    <input type="text" class="form-control" id="Due_DateTextField" placeholder="Enter the Due Date" name="Due_Date" value="<%= Homework.Due_Date %>" required>
+                    <label for="dueDateTextField">Published</label>
+                    <input type="text" class="form-control" id="dueDateTextField" placeholder="Enter the Due Date" name="Due_Date" value="<%= Homework.Due_Date %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="descriptionTextArea">Homework Description</label>
-                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="Enter the Homework Description" name="Description" required><%= Homework.Description %></textarea>
+                    <label for="descriptionTextArea">Description</label>
+                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="enter the Description" name="Description" required><%= Homework.Description %></textarea>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit
                 <i class="fas fa-edit"></i></button>  
@@ -29,4 +30,4 @@
         </div>
     </div>
 </div>
-<%- include Partials/footer.ejs %>
+<%- include ../Partials/footer.ejs%>
