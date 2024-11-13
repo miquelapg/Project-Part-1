@@ -46,8 +46,8 @@ router.post('/add',async(req,res,next)=>{
     try{
         let newHomework = Homework({
             "Name":req.body.Name,
-            "Subject":req.body.Author,
-            "Due Date":req.body.Published,
+            "Subject":req.body.Subject,
+            "Due Date":req.body.Date,
             "Description":req.body.Description,
            
         });
@@ -89,7 +89,7 @@ router.post('/edit/:id',async(req,res,next)=>{
             "_id":id,
             "Name":req.body.Name,
             "Subject":req.body.Subject,
-            "Due Date":req.body.Due_Date,
+            "Due Date":req.body.Date,
             "Description":req.body.Description,
            
         });

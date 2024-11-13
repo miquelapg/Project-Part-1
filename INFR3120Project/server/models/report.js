@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 let homeworkModel = mongoose.Schema({
     Name: String,
-    Subject: String,
-    Due_Date: Number,
+    subject: String,
+    Date: Number,
     Description: String
 },
 {

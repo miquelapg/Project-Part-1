@@ -7,7 +7,7 @@
             <h1><%= title %></h1>
             <br>
             <a href="/homeworklist/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add Book
+                <i class="fas fa-plus-circle"></i> Add Assignment
             </a>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
@@ -19,10 +19,9 @@
                 <% for(let count=0;count<HomeworkList.length;count++) { %>
                 <tr class="d-flex">
                     <td class="text-center col-2"><%= HomeworkList[count].Name %></td>  
-                    <td class="text-center col-2"><%= HomeworkList[count].Author %></td>
-                    <td class="text-center col-1"><%=HomeworkList[count].Published%></td>
+                    <td class="text-center col-2"><%= HomeworkList[count].subject %></td>
+                    <td class="text-center col-1"><%=HomeworkList[count].Date%></td>
                     <td class="col-4"><%= HomeworkList[count].Description %> </td>
-                    <td class="text-center col-1"><%= HomeworkList[count].Price %></td>
                     <td class="text-center col-1">
                         <a href="/homeworklist/edit/<%= HomeworkList[count]._id%>"
                             class="btn btn-primary btn-sm">
