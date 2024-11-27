@@ -13,14 +13,14 @@
                 <tr class="d-flex">
                     <th class="text-center col-2">Name</th>
                     <th class="text-center col-2">Subject</th>
-                    <th class="text-center col-1">Due Date</th>
+                    <th class="text-center col-2">Due Date</th>
                     <th class="col-4">Description</th>
                 </tr>
                 <% for(let count=0;count<HomeworkList.length;count++) { %>
                 <tr class="d-flex">
                     <td class="text-center col-2"><%= HomeworkList[count].Name %></td>  
-                    <td class="text-center col-2"><%= HomeworkList[count].subject %></td>
-                    <td class="text-center col-1"><%=HomeworkList[count].Date%></td>
+                    <td class="text-center col-2"><%= HomeworkList[count].Subject %></td>
+                    <td class="text-center col-2"><%=HomeworkList[count].Date%></td>
                     <td class="col-4"><%= HomeworkList[count].Description %> </td>
                     <td class="text-center col-1">
                         <a href="/homeworklist/edit/<%= HomeworkList[count]._id%>"

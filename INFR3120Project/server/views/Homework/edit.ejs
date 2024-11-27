@@ -8,24 +8,24 @@
             <form class="form" method="POST">
                 <div class="form-group">
                     <label for="nameTextField"> Name</label>
-                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Homework Name=" value="<%= Homework.Name %>" required>
+                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter Homework Name" value="<%= Homework.Name %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="SubjectTextField">Subject</label>
-                    <input type="text" class="form-control" id="SubjectTextField" placeholder="Enter the Subject" name="Subject" value="<%= Homework.Subject %>" required>
+                    <label for="subjectTextField">Subject</label>
+                    <input type="text" class="form-control" id="subjectTextField" placeholder="Enter Subject" name="Subject" value="<%= Homework.Subject %>" required>
                 </div>
                 <div class="form-group">
-                    <label for="DateTextField">Due Date</label>
-                    <input type="text" class="form-control" id="DateTextField" placeholder="Enter the Due Date" name="Date" value="<%= Homework.Date %>" required>
+                    <label for="dateTextField">Due Date</label>
+                    <input type="text" class="form-control" id="dateTextField" placeholder="Enter Due Date" name="Date" value="<%= Homework.Date %>" required>
                 </div>
                 <div class="form-group">
                     <label for="descriptionTextArea">Description</label>
-                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="enter the Description" name="Description" required><%= Homework.Description %></textarea>
+                    <textarea type="text" class="form-control" id="descriptionTextArea"  placeholder="Enter Description" name="Description" required><%= Homework.Description %></textarea>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit
                 <i class="fas fa-edit"></i></button>  
                 <button class="btn btn-warning" type="submit">Cancel
-                    <i class="fas fa-undo"></i></button>    
+                    <i class="fa-solid fa-ban"></i></button>     
             </form>
         </div>
     </div>
