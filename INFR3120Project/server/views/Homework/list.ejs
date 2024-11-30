@@ -6,6 +6,7 @@
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
+            <% if(typeof displayName == 'string' && displayName) { %>
             <a href="/homeworklist/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Assignment
             </a>
@@ -37,6 +38,24 @@
                 </tr>    
                     <%} %>
             </table>
+            <% } else { %>
+                <table class="table table-bordered table-striped table-hover">
+                    <tr class="d-flex">
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">Subject</th>
+                        <th class="text-center col-2">Due Date</th>
+                        <th class="col-4">Description</th>
+                    </tr>
+                    <% for(let count=0;count<HomeworkList.length;count++) { %>
+                        <tr class="d-flex">
+                            <td class="text-center col-2"><%= HomeworkList[count].Name %></td>  
+                            <td class="text-center col-2"><%= HomeworkList[count].Subject %></td>
+                            <td class="text-center col-2"><%=HomeworkList[count].Date%></td>
+                            <td class="col-4"><%= HomeworkList[count].Description %> </td>
+                        </tr>
+                        <% } %>
+                </table> 
+                <%}%>      
         </div>
     </div>
 </main>

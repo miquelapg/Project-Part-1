@@ -33,8 +33,8 @@ router.get('/',async(req,res,next)=>{
     router.get('/add',async(req,res,next)=>{
         try{
             res.render('Homework/add',{
-                title: 'Add Homework'
-                
+                title: 'Add Homework',
+                displayName: req.user? req.user.displayName:'',
             })
         }
         catch(err)

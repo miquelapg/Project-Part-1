@@ -59,9 +59,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/homeworklist',homeworkRouter);
-// /project --> projectrouter
-// /contactus --> contactus
+app.use('/homeworklist', homeworkRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

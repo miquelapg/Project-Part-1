@@ -11,7 +11,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  res.render('index', { title: 'Home',
+    displayName: req.user? req.user.displayName:''
+
+   });
 });
 
 router.get('/login',function(req,res,next){

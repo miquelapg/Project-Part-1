@@ -3,11 +3,10 @@
 
 <main class="container"> 
     <!--Message Area-->
-    <% if (message-lenth > 0) {%>
-    <div class = "alert alter-danger">
-        <%= message %>
-
-    </div>
+    <% if(message.length > 0){ %>
+        <div class = "alert alter-danger">
+            <%= message %>
+        </div>
     <% } %>
 
     <div class="row">
@@ -31,10 +30,10 @@
                     <a href="/register"> Register Here</a>
                 </fieldset>
                 <fieldset class="form-group text-right">
-                    <input type="submit" class="btn btn-sucess"
+                    <input type="submit" class="btn btn-success"
                     value="Login">
                     <a href="/">                       
-                        <input type="button" class="btn btn-working" value="Cancel">
+                        <input type="button" class="btn btn-warning" value="Cancel">
                     </a> 
                 </fieldset>
             </form>
