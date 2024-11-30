@@ -6,12 +6,20 @@ let mongoose = require('mongoose');
 let Homework = require('../models/report');
 const homework = require('../models/report');
 
+function requireAuth(req,res,next){
+    if(!req.isAuthenticated()){
+        return res.redirect('/login');
+    }
+    next();
+}
+
 /* Read Operation --> Get route for displaying the homework list */
 router.get('/',async(req,res,next)=>{
     try{
         const HomeworkList = await Homework.find();
         res.render('Homework/list',{
             title:'Homework',
+            displayName: req.user? req.user.displayName:'',
             HomeworkList:HomeworkList
         })}
         catch(err){
@@ -21,7 +29,7 @@ router.get('/',async(req,res,next)=>{
             })
         }
         });
-
+    
     router.get('/add',async(req,res,next)=>{
         try{
             res.render('Homework/add',{
@@ -66,6 +74,7 @@ router.get('/',async(req,res,next)=>{
             res.render('Homework/edit',
                 {
                     title:'Edit Homework',
+                    displayName: req.user? req.user.displayName:'',
                     Homework:homeworkToEdit
                 }
             )
