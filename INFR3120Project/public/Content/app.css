@@ -2,3 +2,16 @@ img{
     width: 100px;
     height: 100px;
 }
+
+#welcomeMsg h1{
+    text-align: center;    
+}
+#prompt {
+    text-align: center;
+}
+.homeButtons{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

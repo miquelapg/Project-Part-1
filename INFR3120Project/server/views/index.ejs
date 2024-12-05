@@ -1,6 +1,22 @@
 <%- include Partials/header.ejs %>
 <%- include Partials/main_nav.ejs %>
-<h1>Welcome to ESM Assignment Tracker!</h1> 
-<h2>Login or Register to make changes</h2>
+
+<% if(typeof displayName == 'string' && displayName) { %>
+   
+    <h2>Hello, <%= displayName %></h2>
+    <% } else { %>
+        <div id="welcomeMsg">
+            <h1>Welcome to ESM Assignment Tracker!</h1> 
+            
+        <h2 id="prompt">Login or Register to make changes</h2>
+    </div>
+<div class="homeButtons">
+        <a href = "/login" class="btn bg-success text-white" >Login</a>
+       
+        <a href = "/register" class="btn bg-primary text-white" >Register</a>
+        </div>
+        <% } %>
+</div>
+
 
 <%- include Partials/footer.ejs %>
