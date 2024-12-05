@@ -24,16 +24,17 @@ passport.use(User.createStrategy());
 let localStrategy = passportLocal.Strategy;
 
 // getting-started.js
-const mongoose = require('mongoose');
-let DB = require('./db');
+let mongoose = require('mongoose');
+require("dotenv").config();
+//let DB = require('./db');
 // point mongoose to the DB URI
-mongoose.connect(DB.URI);
+mongoose.connect(process.env.URI);
 let mongoDB = mongoose.connection;
 mongoDB.on('error',console.error.bind(console,'Connection Error'));
 mongoDB.once('open',()=>{
   console.log("Connected with the MongoDB")
 });
-mongoose.connect(DB.URI,{useNewURIParser:true,useUnifiedTopology:true})
+mongoose.connect(process.env.URI,{useNewURIParser:true,useUnifiedTopology:true})
 
 app.use(session({
   secret:"SomeSecret",

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport')
-const DB = require('../config/db')
+//const DB = require('../config/db')
 let userModel = require('../models/user');
 let User = userModel.User;
 
