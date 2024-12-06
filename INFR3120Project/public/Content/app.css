@@ -1,9 +1,21 @@
+body{
+    background-color: #E0DDCF;
+
+}
+
 img{
     width: 100px;
     height: 100px;
 }
+.homeImg img{
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
 
-#welcomeMsg h1{
+.homeTextandBt{
     text-align: center;    
 }
 #prompt {
