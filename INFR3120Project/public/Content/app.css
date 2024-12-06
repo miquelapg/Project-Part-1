@@ -1,12 +1,14 @@
+/* This changes the main background colour*/
 body{
     background-color: #E0DDCF;
 
 }
-
+/* This is the logo in the top left of the website*/
 img{
     width: 100px;
     height: 100px;
 }
+/* This is the background image design on the website*/
 .homeImg img{
     display: flex;
     justify-content: space-around;
@@ -14,7 +16,7 @@ img{
     width: 100%;
     object-fit: cover;
 }
-
+/* This fixes the text alignment on the home page*/
 .homeTextandBt{
     text-align: center;    
 }
